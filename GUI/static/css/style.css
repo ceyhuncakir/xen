@@ -17,6 +17,9 @@ html {
   overflow-x: hidden;
 }
 
+
+/* --------------------------------BODY AREA START-----------------------------------*/
+
 body {
   background-color: var(--gray-color);
 	transition: background 0.2s linear;
@@ -27,6 +30,8 @@ body {
 body.dark {
 	background: var(--dark-theme);
 }
+
+/* --------------------------------HEADER AREA START-----------------------------------*/
 
 .header {
   width: 100%;
@@ -41,6 +46,9 @@ body.dark {
   background: var(--dark-theme-header);
 }
 
+
+/* --------------------------------FOOTER AREA START-----------------------------------*/
+
 footer {
   position: relative;
   bottom: 0;
@@ -54,17 +62,6 @@ footer {
 
 footer.dark {
   background: var(--dark-theme);
-}
-
-footer .line {
-  position: relative;
-  right: 7px;
-  width: 979px;
-  border-top: 1px solid var(--dark-theme-light);
-  border-bottom: 1px solid var(---dark-theme-light);
-  border-left: 1px solid var(--dark-theme-light);
-  border-right: 1px solid var(--dark-theme-light);
-  bottom: 105px;
 }
 
 footer .copyright {
@@ -90,6 +87,19 @@ footer .links .link {
   font-size: 13px;
   padding-right: 28px;
 }
+
+footer .line {
+  position: relative;
+  right: 7px;
+  width: 979px;
+  border-top: 1px solid var(--dark-theme-light);
+  border-bottom: 1px solid var(---dark-theme-light);
+  border-left: 1px solid var(--dark-theme-light);
+  border-right: 1px solid var(--dark-theme-light);
+  bottom: 105px;
+}
+
+/* --------------------------------THEME SWITCHER AREA START-----------------------------------*/
 
 .checkbox {
 	opacity: 0;
@@ -138,6 +148,8 @@ footer .links .link {
 	color: #f39c12;
   font-size: 12px;
 }
+
+/* --------------------------------SERVERS AREA START-----------------------------------*/
 
 .servers {
   width: 983px;
@@ -199,8 +211,12 @@ footer .links .link {
   font-size: 20px;
   position: relative;
   bottom: 0px;
-  left: 30px;
+  left: 0px;
   transition: background 0.2s linear;
+}
+
+.accordion-item-header .name a{
+  margin-left: 15px;
 }
 
 .accordion-item-header .name.dark{
@@ -212,7 +228,9 @@ footer .links .link {
   font-size: 2rem;
   position: absolute;
   right: 1rem;
+  color: var(--link-color);
 }
+
 .accordion-item-header.active::after {
   content: "\2212";
 }
@@ -222,23 +240,23 @@ footer .links .link {
   transition: max-height 0.2s ease-out;
 }
 .accordion-item-body-content {
-  padding: 0rem;
   line-height: 1.5rem;
   border-top: 1px solid;
   border-image: linear-gradient(to right, transparent, #34495e, transparent) 1;
+  max-height: 95px;
 }
 
 .accordion-item-body-content img {
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 15px;
   position: relative;
-  left: 22px;
-  top: 14px;
+  left: 25px;
+  top: 20px;
 }
 
 .accordion-item-body-content .location {
   position: relative;
-  bottom: 20px;
+  bottom: 7px;
   left: 65px;
 }
 
@@ -255,12 +273,14 @@ footer .links .link {
 .accordion-item-body-content .status-description a{
   position: relative;
   left: 24px;
+  font-weight: bold;
+  top: 7px;
 }
 
 .accordion-item-body-content .status {
   position: relative;
   left: 60px;
-  bottom: 35px;
+  bottom: 34px;
 }
 
 .accordion-item-body-content .status-inactive img {
@@ -272,6 +292,51 @@ footer .links .link {
   width: 17px;
   height: 17px;
 }
+
+.accordion-item-body-content .ip {
+  position: relative;
+  left: 700px;
+  bottom: 81px;
+}
+
+.accordion-item-body-content .ip.dark {
+  color: var(--link-color);
+}
+
+.accordion-item-body-content .ip a {
+  font-weight: bold;
+  margin-left: 5px;
+}
+
+.accordion-item-body-content .username {
+  position: relative;
+  left: 570px;
+  bottom: 68px;
+}
+
+.accordion-item-body-content .username.dark {
+  color: var(--link-color);
+}
+
+.accordion-item-body-content .username a{
+  font-weight: bold;
+}
+
+.accordion-item-body-content .password {
+  position: relative;
+  left: 700px;
+  bottom: 93px;
+}
+
+.accordion-item-body-content .password.dark {
+  color: var(--link-color);
+}
+
+.accordion-item-body-content .password a{
+  font-weight: bold;
+}
+
+/* --------------------------------NO SERVERS AREA START-----------------------------------*/
 
 .empty {
   position: relative;
@@ -291,6 +356,8 @@ footer .links .link {
   top: 20px;
   left: 40px;
 }
+
+/* --------------------------------LOGO AREA START-----------------------------------*/
 
 .home {
   height: 50px;

@@ -1,39 +1,58 @@
-const chk = document.getElementById('chk');
-var copyright = document.getElementsByClassName("copyright");
-var links = document.getElementsByClassName("links");
+var footer_copyright = document.getElementsByClassName("copyright");
+var footer_links = document.getElementsByClassName("links");
 var card = document.getElementsByClassName("accordion-item");
-var card_location = document.getElementsByClassName("location");
-var card_status = document.getElementsByClassName("status-description");
-var cardnames = document.getElementsByClassName("name");
+var card_server_location = document.getElementsByClassName("location");
+var card_server_status = document.getElementsByClassName("status-description");
+var card_server_names = document.getElementsByClassName("name");
+var card_server_ip = document.getElementsByClassName("ip");
+var card_server_username = document.getElementsByClassName("username");
+var card_server_password = document.getElementsByClassName("password");
+
+var header = document.getElementById("header");
+
 const accordionItemHeaders = document.querySelectorAll(".accordion-item-header");
+const chk = document.getElementById('chk');
 
 chk.addEventListener('change', () => {
     document.body.classList.toggle('dark');
-    document.getElementById("header").classList.toggle('dark');
+    header.classList.toggle('dark');
     document.getElementById("footer").classList.toggle('dark');
 
-    for (var i = 0; i < cardnames.length; i++) {
-        cardnames[i].classList.toggle('dark');
+
+    for (var i = 0; i < card_server_names.length; i++) {
+        card_server_names[i].classList.toggle('dark');
     }
 
-    for (var i = 0; i < card_location.length; i++) {
-        card_location[i].classList.toggle('dark');
+    for (var i = 0; i < card_server_ip.length; i++) {
+        card_server_ip[i].classList.toggle('dark');
     }
 
-    for (var i = 0; i < card_status.length; i++) {
-        card_status[i].classList.toggle('dark');
+    for (var i = 0; i < card_server_username.length; i++) {
+        card_server_username[i].classList.toggle('dark');
+    }
+
+    for (var i = 0; i < card_server_password.length; i++) {
+        card_server_password[i].classList.toggle('dark');
+    }
+
+    for (var i = 0; i < card_server_location.length; i++) {
+        card_server_location[i].classList.toggle('dark');
+    }
+
+    for (var i = 0; i < card_server_status.length; i++) {
+        card_server_status[i].classList.toggle('dark');
     }
 
     for (var i = 0; i < card.length; i++) {
         card[i].classList.toggle('dark');
     }
 
-    for (var i = 0; i < copyright.length; i++) {
-        copyright[i].classList.toggle('dark');
+    for (var i = 0; i < footer_copyright.length; i++) {
+        footer_copyright[i].classList.toggle('dark');
     }
 
-    for (var i = 0; i < links.length; i++) {
-        links[i].classList.toggle('dark');
+    for (var i = 0; i < footer_links.length; i++) {
+        footer_links[i].classList.toggle('dark');
     }
 });
 

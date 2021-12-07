@@ -56,29 +56,29 @@
                 {% endif %}
               </div>
               <div class="name">
+                <a>{{server[2]}}</a>
                 <a>{{server[1]}}</a>
               </div>
             </div>
             <div class="accordion-item-body">
               <div class="accordion-item-body-content">
-                {% if server[6].startswith('sweden') %}
-                  <img src ="/static/img/countries/sweden.png"/>
-                {% elif server[6].startswith('turkey') %}
-                  <img src ="/static/img/countries/turkey.png"/>
-                {% elif server[6].startswith('unknown') %}
-                  <img src ="/static/img/countries/unknown.jpg"/>
-                {% endif %}
+                <img src="https://flagcdn.com/w2560/{{server[6]}}.png">
                 
                 <div class="location"><a>{{server[6]}}, {{server[7]}}</a></div>
                 
                 <div class="status-description">
                   <a>status: </a>
                 </div>
+
                 {% if server[8].startswith('active') %}
                   <div class="status status-active"><img src="/static/img/status/active.png"/></div>
                 {% else %}
                   <div class="status status-inactive"><img src="/static/img/status/inactive.png"/></div>
                 {% endif %}
+
+                <div class="ip"><span>host ip: </span><a>{{server[3]}}</a></div>
+                <div class="username"><span>username: </span><a>{{server[4]}}</a></div>
+                <div class="password"><span>password: </span><a>{{server[5]}}</a></div>
               </div>
             </div>
           </div>
