@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    {{ fontawesome_html() }}
+    <title>xen - dashboard</title>
+  </head>
+
+  <body>
+
+    <div class="header" id="header">
+      <div>
+        <input type="checkbox" class="checkbox" id="chk" />
+        <label class="label" for="chk" id="theme-label">
+          <i class="fas fa-moon"></i>
+          <i class="fas fa-sun"></i>
+          <div class="ball" id="theme-label-ball"></div>
+        </label>
+      </div>
+    </div>
+
+    <div class="home">
+      <img src ="/static/img/worm.png" /> 
+    </div>
+    
+    {% if servers | length == 0 %}
+      <div class="empty">
+        <img src ="/static/img/no_servers.png" /> 
+        <div class="description"><a>servers currently not available</a></div>
+      </div>
+    {% else %}
+
+    <div class="servers">
+      {%for server in servers%}
+        <div class="accordion">
+          <div class="accordion-item">
+            <div class="accordion-item-header">
+              <div class="icon">
+                {% if server[2].startswith('linux') %}
+                  <img src ="/static/img/os/linux.png" /> 
+                {% elif server[2].startswith('windows') %}
+                  <img src ="/static/img/os/windows.png" /> 
+                {% elif server[2].startswith('debian') %}
+                  <img src ="/static/img/os/debian.png" class="debian" /> 
+                {% elif server[2].startswith('centos') %}
+                  <img src ="/static/img/os/centos.png" /> 
+                {% elif server[2].startswith('fedora') %}
+                  <img src ="/static/img/os/fedora.png" /> 
+                {% elif server[2].startswith('redhat') %}
+                  <img src ="/static/img/os/redhat.png" /> 
+                {% elif server[2].startswith('archlinux') %}
+                  <img src ="/static/img/os/archlinux.png" /> 
+                {% endif %}
+              </div>
+              <div class="name">
+                <a>{{server[1]}}</a>
+              </div>
+            </div>
+            <div class="accordion-item-body">
+              <div class="accordion-item-body-content">
+                {% if server[6].startswith('sweden') %}
+                  <img src ="/static/img/countries/sweden.png"/>
+                {% elif server[6].startswith('turkey') %}
+                  <img src ="/static/img/countries/turkey.png"/>
+                {% elif server[6].startswith('unknown') %}
+                  <img src ="/static/img/countries/unknown.jpg"/>
+                {% endif %}
+                
+                <div class="location"><a>{{server[6]}}, {{server[7]}}</a></div>
+                
+                <div class="status-description">
+                  <a>status: </a>
+                </div>
+                {% if server[8].startswith('active') %}
+                  <div class="status status-active"><img src="/static/img/status/active.png"/></div>
+                {% else %}
+                  <div class="status status-inactive"><img src="/static/img/status/inactive.png"/></div>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        </div>
+      {%endfor%}
+    </div>
+
+    {% endif %}
+    
+    <script type="text/javascript" src="{{ url_for('static', filename='js/theme.js')}}"></script>
+  </body>
+
+  <footer id="footer">
+    <hr class="line"/>
+
+    <div class="copyright">
+        <a>&copy; 2021 xen</a>
+    </div>
+
+    <div class="links">
+      <a class="link">Terms</a>
+      <a class="link">Privacy</a>
+      <a class="link">Security</a>
+      <a class="link">Status</a>
+      <a class="link">Docs</a>
+      <a class="link">Contact Xen</a>
+      <a class="link">Pricing</a>
+      <a class="link">API</a>
+      <a class="link">Training</a>
+      <a class="link">Blog</a>
+      <a class="link">About</a>
+    </div>
+
+  </footer>
+</html>
