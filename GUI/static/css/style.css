@@ -1,12 +1,15 @@
 :root {
   --gray-color: #F8F8F8;
   --dark-gray-color: #dfdfdf; 
+  --dark-gray-heavy-color: #b9b9b9;
   --dark-color: #323232;
   --white-color: #FFFFFF;
   --dark-theme: #0D1117;
   --dark-theme-header: #141a24;
   --dark-theme-light: #4d5666;
-  --link-color:#4078c0;
+  --link-color: #4078C0;
+  --empty-text: #121925;
+
 }
 
 html {
@@ -149,6 +152,105 @@ footer .line {
   font-size: 12px;
 }
 
+/* --------------------------------PAGINATION AREA START-----------------------------------*/
+
+.pagination {
+  position: relative;
+  left: 770px;
+  top: 110px;
+}
+
+.pagination > li {
+
+  padding:0px 12px;
+  margin-right: 20px;
+}
+
+.pagination .page-item a{
+  text-decoration: none;
+  color: gray;
+  font-size: 18px;
+  position: relative;
+}
+
+.pagination .active {
+  background: var(--link-color);
+  border-radius: 8px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.pagination .active a {
+  color: white;
+}
+
+
+.pagination .page-item {
+  display: none;
+}
+
+.pagination .page-item:first-child {
+  letter-spacing: 3px;
+  font-size: 40px;
+  position: relative;
+  top: 4px;
+  color: var(--dark-theme-header);
+}
+
+.pagination .page-item:last-child{
+  letter-spacing: 3px;
+  font-size: 40px;
+  position: relative;
+  top: 4px;
+  color: var(--dark-theme-header);
+}
+
+.pagination .disabled.dark {
+  color: var(--link-color);
+}
+
+.pagination .page-item .page-link[aria-label="Next"] {
+  letter-spacing: 3px;
+  font-size: 40px;
+  position: relative;
+}
+
+.pagination .page-item .page-link[aria-label="Next"].dark {
+  color: var(--link-color);
+}
+
+.pagination .page-item .page-link[aria-label="Previous"] {
+  letter-spacing: 3px;
+  font-size: 40px;
+  position: relative;
+}
+
+.pagination .page-item .page-link[aria-label="Previous"].dark {
+  color: var(--link-color);
+}
+
+
+.pagination .page-item .page-link a{
+  font-size: 18px;
+}
+
+.pagination .page-item .page-link.dark {
+  color: var(--link-color);
+}
+
+.pagination .page-item:first-child, 
+.pagination .page-item:nth-child(2),  
+.pagination .page-item:nth-child(3),
+.pagination .page-item:nth-child(4),
+.pagination .page-item:nth-last-child(2), 
+.pagination .page-item:last-child, 
+.pagination .page-item:active, 
+.pagination .page-item:disabled {
+  display: inline-block;
+}
+
+
+
 /* --------------------------------SERVERS AREA START-----------------------------------*/
 
 .servers {
@@ -163,6 +265,21 @@ footer .line {
   width: 90%;
   max-width: 1000px;
   margin: 2rem auto;
+  animation: fadeIn 0.2s ease-in both;
+}
+
+.servers .accordion:nth-child(2) {
+	animation-delay: 0.2s;
+}
+.servers .accordion:nth-child(3) {
+	animation-delay: 0.4s;
+}
+.servers .accordion:nth-child(4) {
+	animation-delay: 0.6s;
+}
+
+.servers .accordion:nth-child(5) {
+	animation-delay: 0.8s;
 }
 
 .accordion-item {
@@ -295,7 +412,7 @@ footer .line {
 
 .accordion-item-body-content .ip {
   position: relative;
-  left: 700px;
+  left: 650px;
   bottom: 81px;
 }
 
@@ -310,7 +427,7 @@ footer .line {
 
 .accordion-item-body-content .username {
   position: relative;
-  left: 570px;
+  left: 500px;
   bottom: 68px;
 }
 
@@ -341,20 +458,74 @@ footer .line {
 .empty {
   position: relative;
   height: 500px;
-  width: 350px;
-  left: 780px;
-  top: 100px;
+  width: 985px;
+  left: 460px;
+  top: 50px;
+  align-items: center;
+  background: rgba(204, 204, 204, 0.11);
+  border-radius: 15px;
 }
 
-.empty img {
-  position: relative;
+.empty.dark {
+  background: rgba(204, 204, 204, 0.02);
+  transition: background 0.2s linear;
 }
 
 .empty .description {
-  font-size: 18px;
   position: relative;
   top: 20px;
   left: 40px;
+}
+
+.empty .description .no-data {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 25px;
+  color: var(--dark-theme-header);
+  position: relative;
+  top: 110px;
+  left: 420px;
+  animation: fadeIn 0.3s ease-in both;
+  animation-delay: 0.4s;
+}
+
+.empty .description .no-data.dark {
+  color: var(--link-color);
+}
+
+.empty .description .no-data-description {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  color: var(--dark-theme-header);
+  position: relative;
+  top: 120px;
+  left: 343px;
+  animation: fadeIn 0.3s ease-in both;
+  animation-delay: 0.5s;
+}
+
+.empty .description .no-data-description.dark {
+  color: var(--link-color);
+}
+
+.empty .description img {
+  position: relative;
+  left: 420px;
+  top: 100px;
+  height: 95px;
+  animation: fadeIn 0.3s ease-in both;
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		transform: translate3d(0, -25%, 0);
+	}
+	to {
+		opacity: 1;
+		transform: translate3d(0, 0, 0);
+	}
 }
 
 /* --------------------------------LOGO AREA START-----------------------------------*/
